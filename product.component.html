@@ -1,0 +1,39 @@
+<form name="form" #add="ngForm" (ngSubmit) = "addProduct(add)" >
+    <label>Product ID:</label>
+    <input type="text" name="pid" [(ngModel)]="add.pid"/>
+    <span *ngIf="pidValidation">This field is required</span>
+    <br> <br>
+  
+     <label>Product Name:</label>
+    <input type="text" name="pname" [(ngModel)]="add.pname"/>
+    <span *ngIf="pnameValidation">This field is required</span>
+    <br> <br>
+  
+    <label>Product Cost:</label>
+    <input type="text" name="pcost" [(ngModel)]="add.pcost"/>
+    <span *ngIf="psalaryValidation">This field is required</span>
+    <br> <br>
+  
+    <label>Product Online:</label>
+    <input type="radio" id="yes" value="yes" name="ponline" [(ngModel)]="add.ponline"/>Yes
+            <input type="radio" id="no" value="no" name="ponline" [(ngModel)]="add.ponline"/>No
+    <span *ngIf="ponlineValidation">This field is required</span>
+    <br> <br>
+
+    <label>Available in Store:</label>
+    <label for="store" *ngFor="let store of storelist ; let i=index">
+ 
+<input type="checkbox" name="store" value="{{store}}" (click)="dispSkill($event.target.value,i,$event.target.checked)"/>{{skill}}
+</label>
+<input type="checkbox" id="chckst" name="chckstr"/>
+    <!--<input type='checkbox'  value="Big Bazar" name="pstore" ngModel/>Big Bazar
+    <input type='checkbox'  value="DMart" name="pstore" ngModel/>DMart
+    <input type='checkbox' value="Reliance" name="pstore" ngModel />Reliance
+    <input type='checkbox' value="Mega Store" name="pstore" ngModel/>Mega Store
+    <br> <br>-->
+  
+   
+  
+    <button type="submit">Add Product</button>
+    
+  </form>
